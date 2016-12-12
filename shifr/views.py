@@ -11,6 +11,7 @@ from django.shortcuts import render
 #         ste+=letter + "->" + orig + ""
 def index(request):
     empty = ''
+    enty = ''
 
     if request.POST:
         orig = request.POST.get('original')
@@ -23,7 +24,10 @@ def index(request):
             if shifr == 'deshifr':
                 step = -step
             for let in orig:
-                empty += chr(ord(let)+step)
+                empty += int(chr(ord(let)+step))
+                while empty < 32:
+                    empty += 96
+
 
 
 
@@ -50,4 +54,4 @@ def index(request):
     # for c in orig:
     #     cipher += alphabet[(alphabet.index(c) + ste)]
 
-    return render(request, 'shifr/index.html', {'shifr': empty, })
+    return render(request, 'shifr/index.html', {'shifr': empty,'deshifr': empty })
