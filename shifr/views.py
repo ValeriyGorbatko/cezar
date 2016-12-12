@@ -24,9 +24,21 @@ def index(request):
             if shifr == 'deshifr':
                 step = -step
             for let in orig:
-                empty += int(chr(ord(let)+step))
-                while empty < 32:
-                    empty += 96
+                # empty += chr(ord(let) + step)
+                empty = ord(let)
+
+                if let.isalpha():
+                    empty = empty + step
+                    offset = 65
+                    if let.islower():
+                        offset = 97
+                        while empty < offset:
+                            empty += 26
+                        while empty > offset + 25:
+                            empty -= 26
+                        enty += chr(empty)
+
+
 
 
 
@@ -54,4 +66,4 @@ def index(request):
     # for c in orig:
     #     cipher += alphabet[(alphabet.index(c) + ste)]
 
-    return render(request, 'shifr/index.html', {'shifr': empty,'deshifr': empty })
+    return render(request, 'shifr/index.html', {'shifr': enty, 'deshifr':  })

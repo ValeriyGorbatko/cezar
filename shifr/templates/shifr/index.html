@@ -9,7 +9,7 @@
 	<div class="fortext">
     <form method="POST" action="">
         {% csrf_token %}
-		<textarea  id="pol" type="text" name="original">{{deshifr}}</textarea>
+		<textarea  id="pol" type="text" name="original">{{ deshifr }}</textarea>
 		<input type="number" id="step" name="step" value="0">
 		<input type="submit" id="sub" value="shifr" name="shifr">
 		<input type="submit" id="sub1" value="deshifr" name="shifr">
