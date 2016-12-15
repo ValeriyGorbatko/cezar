@@ -2,8 +2,8 @@ body{
 	background: #eee;
 }
 .fortext{
-	margin-top: 10%;
-	margin-left: 10%;
+	margin-top: 0;
+	margin-left: 25%;
 }
 #pol{
 	width: 300px;
@@ -37,4 +37,7 @@ input{
 }
 textarea{
 	border:2px inset #ccc;
+}
+#chart_div{
+height:70%;
 }

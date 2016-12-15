@@ -1,5 +1,5 @@
  {% load staticfiles %}
-<html lang="en">
+ <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 	<meta charset="UTF-8">
 	<title>TZ Cezar</title>
@@ -16,5 +16,34 @@
 		<textarea type="text" id="pol1" name="shifr_text" readonly>{{ shifr }}</textarea>
         </form>
 	</div>
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['City', '2010 Population',],
+        ['a', 2],
+      ]);
+
+      var options = {
+        title: 'Частота символов встречающихся в зашифрованном тексте',
+        chartArea: {width: '50%',
+        			height: '70%'},
+        hAxis: {
+          minValue: 0
+        }
+
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+</script>
+  <div id="chart_div"></div>
 </body>
 </html>

@@ -12,6 +12,7 @@ from django.shortcuts import render
 def index(request):
     empty = ''
     enty = ''
+    lit = ''
 
     if request.POST:
         orig = request.POST.get('original')
@@ -38,7 +39,33 @@ def index(request):
                             empty -= 26
                         enty += chr(empty)
 
+                        for lit in range(97, 123):
+                            # enty.count(chr(lit))
+                            graph = (chr(lit), enty.count(chr(lit)))
+                            print(graph)
 
+
+# def chastot(enty):
+#     d = dict()
+#     for c in enty:
+#         if enty not in d:d[c] = 1
+#         else:d[c] += 1
+#     print(d)
+#                         for i in enty:
+#                             if 'a' <= i <= 'z' or 'A' <= i <= 'Z':
+#                                 word += i.lower()
+#                             else:
+#                                 if word:
+#                                     tWords += 1
+#                                     if word in words:
+#                                         words[word] = words[word] + 1
+#                                     else:
+#                                         words[word] = 1
+#                                 word = ''
+#                         # print ('total words = {0}'.format(tWords))
+#                         # print ('unique words = {0}'.format(uWords))
+#                         print(word)
+#                         print(words)
 
 
 
@@ -66,4 +93,4 @@ def index(request):
     # for c in orig:
     #     cipher += alphabet[(alphabet.index(c) + ste)]
 
-    return render(request, 'shifr/index.html', {'shifr': enty, 'deshifr':  })
+    return render(request, 'shifr/index.html', {'shifr': enty })
