@@ -17,6 +17,7 @@
         </form>
 	</div>
 
+
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
 	google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -25,8 +26,11 @@ google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
 
       var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population',],
-        ['a', 2],
+        ['', 'length',],
+
+			{% for obj in answer %}
+				['{{obj.letter}}', {{obj.count}}],
+			{% endfor %}
       ]);
 
       var options = {
